@@ -1,7 +1,6 @@
 package com.usecase.demo.service;
 
-import com.usecase.demo.model.gadget;
-import com.usecase.demo.repository.GadgetRepository;
+import com.usecase.demo.model.Gadget;
 import com.usecase.demo.repository.GadgetRepository;
 import org.springframework.stereotype.Service;
 

@@ -1,17 +1,17 @@
 package com.usecase.demo.model;
 @entity
-public class gadget {
+public class Gadget {
 
-    public string getModel() {
+    public String getModel() {
         return model;
     }
 
-    public void setModel(string model) {
+    public void setModel(String model) {
         this.model = model;
     }
 
     public int getQunatity() {
-        return qunatity;
+        return quantity;
     }
 
     public void setQunatity(int qunatity) {
