@@ -15,7 +15,7 @@ public class Gadget {
     }
 
     public void setQunatity(int qunatity) {
-        this.qunatity = qunatity;
+        this.quantity = qunatity;
     }
 
     public double getPrice() {
