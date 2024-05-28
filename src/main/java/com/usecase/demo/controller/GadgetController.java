@@ -27,19 +27,20 @@ public class GadgetController {
         this.gadgetService=gadgetService;
     }
 
-    @GetMapping("/fetchallGadgets")
+
+    @GetMapping("/Gadgets")
     public ResponseEntity<List<Gadget>>fetchAll(@RequestParam String param) {
         List<Gadget>l= gadgetService.findAll();
         return ResponseEntity.ok(l);
     }
 
-    @GetMapping("/fetchById/{id}")
+    @GetMapping("/Id/{id}")
     public ResponseEntity<Gadget> fetchById(@PathVariable Integer id) {
         Gadget Gid=gadgetService.findById(id);
         return ResponseEntity.ok(Gid);
     }
 
-    @GetMapping("/fetchSummary")
+    @GetMapping("/Summary")
     public ResponseEntity<List<Gadget> >(@RequestParam List<Integer> lowhigh) {
         Integer low=lowhigh[0],high=lowhigh[1];
         List<Gadget> l=gadgetService.findGadgetsByPriceRange(low,high);
