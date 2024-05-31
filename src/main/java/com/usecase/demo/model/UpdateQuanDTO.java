@@ -1,6 +1,7 @@
 package com.usecase.demo.model;
 
 public class UpdateQuanDTO {
-    String make,model;
-    int quantity;
+
+   public  String make,model;
+    public  int quantity;
 }

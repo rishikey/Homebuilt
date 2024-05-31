@@ -48,12 +48,16 @@ public class GadgetController {
     }
     
     
-    @PostMapping("/updateQuantity")
-    public String updateQuantity(@RequestBody  UpdateQuanDTO x) {
-        
+    @PostMapping("/update/Quantity")
+    public ResponseEntity<String> updateQuantity(@RequestBody  UpdateQuanDTO x) {
+        Integer id=findIDForGivenMakeAndModel(x.make,x.model);
+        Gadget xx=gadgetService.findById(id);
+        xx.quantity=x.quantity;
+        gadgetService.save(xx);
+        return ResponseEntity.ok("Quantity updated");
     }
 
-    @PostMapping("/updatePrice")
+    @PostMapping("/update/Price")
     public String updatePrice(@RequestBody String entity) {
         //TODO: process POST request
         
