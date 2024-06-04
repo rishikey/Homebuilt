@@ -2,12 +2,14 @@ package com.usecase.demo.service;
 
 import com.usecase.demo.model.Gadget;
 import com.usecase.demo.repository.GadgetRepository;
+
 import org.springframework.stereotype.Service;
 
 @Service
 public class GadgetService {
     private final GadgetRepository gadgetRepository;
 
+    
     public GadgetService(GadgetRepository gadgetRepository){
         this.gadgetRepository= gadgetRepository;
     }

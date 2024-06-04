@@ -1,5 +1,11 @@
 package com.usecase.demo.model;
-@entity
+
+import org.springframework.context.annotation.Primary;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+
+@Entity
 public class Gadget {
 
     public String getModel() {
@@ -7,7 +13,7 @@ public class Gadget {
     }
 
     public void setModel(String model) {
-        this.model = model;
+        this.model = model;`
     }
 
     public int getQunatity() {
@@ -33,7 +39,8 @@ public class Gadget {
     public void setMake(String make) {
         this.make = make;
     }
-
+     @Id
+    public Integer id;
     public String make;
     public String model;
     public int quantity;
