@@ -33,7 +33,7 @@ public class GadgetController {
 
 
     @GetMapping("/Gadgets")
-    public ResponseEntity<List<Gadget>>fetchAll(@RequestParam String param) {
+    public ResponseEntity<List<Gadget>>fetchAll() {
         List<Gadget>l= gadgetService.findAll();
         return ResponseEntity.ok(l);
     }
@@ -45,55 +45,55 @@ public class GadgetController {
     }
 
     @GetMapping("/Summary")
-    public ResponseEntity<List<Gadget> >(@RequestParam List<Integer> lowhigh) {
-        Integer low=lowhigh[0],high=lowhigh[1];
+    public ResponseEntity<List<Gadget> >summary(@RequestParam double low,@RequestParam double high) {
+
         List<Gadget> l=gadgetService.findGadgetsByPriceRange(low,high);
         return ResponseEntity.ok(l);
     }
     
     
     @PostMapping("/update/Quantity")
-    public ResponseEntity<String> updateQuantity(@RequestBody  UpdateQuanDTO x) {
-        Integer id=findIDForGivenMakeAndModel(x.make,x.model);
+    public ResponseEntity<String> updateQuantity(@RequestBody  UpdateQuanDTO updatequandto) {
+        Integer id=gadgetService.findIDForGivenMakeAndModel(updatequandto.make,updatequandto.model);
         Gadget xx=gadgetService.findById(id);
-        xx.quantity=x.quantity;
+        xx.quantity=updatequandto.quantity;
         gadgetService.save(xx);
         return ResponseEntity.ok("Quantity updated");
     }
 
     @PostMapping("/update/Price")
-    public ResponseEntity<String> updatePrice(@RequestBody  UpdatePriceDTO x) {
-        Integer id=findIDForGivenMakeAndModel(x.make,x.model);
+    public ResponseEntity<String> updatePrice(@RequestBody  UpdatePriceDTO updatepricedto) {
+        Integer id=gadgetService.findIDForGivenMakeAndModel(updatepricedto.make,updatepricedto.model);
         Gadget xx=gadgetService.findById(id);
-        xx.price=x.price;
+        xx.price=updatepricedto.price;
         gadgetService.save(xx);
         return ResponseEntity.ok("Quantity updated");
     }
     
     
     
-    @PostMapping("/add/Gadget")
+    @PostMapping("/add")
     public ResponseEntity<String> addGadget( @RequestBody Gadget gadget){
-      int id=  gadgetService.save(gadget);
-        return ResponseEntity.ok("gadget added: "+id);
+      Gadget gadgetAdded=  gadgetService.save(gadget);
+        return ResponseEntity.ok("gadget added: "+gadgetAdded.id);
     }
 
-    @PostMapping("/add/Gadgets")
+    @PostMapping("/add")
     public ResponseEntity<String> addGadgets (@RequestBody ArrayList<Gadget> gadgets) {
         String gadgetIDList="";
-        for(Gadget u:gadgets){int id=gadgetService.save(u);
-        //StringBuilder t= new StringBuilder(gadgetIDList);
-        gadgetIDList=gadgetIDList.concat("id: "+id+"\n");
+        for(Gadget u:gadgets){Gadget gadgetAdded=gadgetService.save(u);
+
+        gadgetIDList=gadgetIDList.concat("id: "+gadgetAdded.id+"\n");
         }
-        return ResponseEntity.ok("Gadgets added: \n"gadgetIDList);
+        return ResponseEntity.ok("Gadgets added: \n"+gadgetIDList);
     }
 
     @DeleteMapping("/delete")
-    public ResponseEntity<String> delete(@RequestBody DeleteDTO x) {
+    public ResponseEntity<String> delete(@RequestBody DeleteDTO deleteDTO) {
         
-        Integer gadgetDelete=findIDForGivenMakeAndModel(x.make,x.model).get();
+        Integer gadgetDeleteId=gadgetService.findIDForGivenMakeAndModel(deleteDTO.make,deleteDTO.model);
         
-        gadgetService.deleteById(gadgetDelete.id);
+        gadgetService.deleteById(gadgetDeleteId);
         return ResponseEntity.ok("Deleted");
     }
     

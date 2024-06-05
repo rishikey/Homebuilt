@@ -1,7 +1,5 @@
 package com.usecase.demo.model;
 
-import org.springframework.context.annotation.Primary;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 
@@ -13,7 +11,7 @@ public class Gadget {
     }
 
     public void setModel(String model) {
-        this.model = model;`
+        this.model = model;
     }
 
     public int getQunatity() {
