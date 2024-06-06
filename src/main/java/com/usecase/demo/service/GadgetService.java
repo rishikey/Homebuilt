@@ -42,12 +42,12 @@ public class GadgetService {
         return ans;
     }
 
-    public List<Gadget> findGadgetsByPriceRange(double lo,double hi){
-      return   gadgetRepository.findGadgetsByPriceRange(lo,hi);
+    public List<Gadget> findGadgetsByPriceRange(int lo,int hi){
+      return   gadgetRepository.findByPriceBetween(lo,hi);
     }
 
     public int findIDForGivenMakeAndModel(String make,String model){
-       return  gadgetRepository.findIDForGivenMakeAndModel( make, model);
+       return  gadgetRepository.findIdByMakeAndModel( make, model);
     }
 
     public void deleteById(int id){

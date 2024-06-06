@@ -22,11 +22,11 @@ public class Gadget {
         this.quantity = qunatity;
     }
 
-    public double getPrice() {
+    public int getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(int price) {
         this.price = price;
     }
 
@@ -42,6 +42,6 @@ public class Gadget {
     public String make;
     public String model;
     public int quantity;
-    public double price;
+    public int price;
 
 }

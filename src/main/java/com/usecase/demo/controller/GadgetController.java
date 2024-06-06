@@ -45,7 +45,7 @@ public class GadgetController {
     }
 
     @GetMapping("/Summary")
-    public ResponseEntity<List<Gadget> >summary(@RequestParam double low,@RequestParam double high) {
+    public ResponseEntity<List<Gadget> >summary(@RequestParam int low,@RequestParam int high) {
 
         List<Gadget> l=gadgetService.findGadgetsByPriceRange(low,high);
         return ResponseEntity.ok(l);
@@ -78,7 +78,7 @@ public class GadgetController {
         return ResponseEntity.ok("gadget added: "+gadgetAdded.id);
     }
 
-    @PostMapping("/add")
+    @PostMapping("/adds")
     public ResponseEntity<String> addGadgets (@RequestBody ArrayList<Gadget> gadgets) {
         String gadgetIDList="";
         for(Gadget u:gadgets){Gadget gadgetAdded=gadgetService.save(u);

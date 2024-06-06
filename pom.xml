@@ -46,18 +46,40 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+
+
+
+
+
+
+
+
+
+
 	</dependencies>
+<!--	<beans xmlns="http://www.springframework.org/schema/beans"-->
+<!--		   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"-->
+<!--		   xmlns:jpa="http://www.springframework.org/schema/data/jpa"-->
+<!--		   xsi:schemaLocation="http://www.springframework.org/schema/beans-->
+<!--     https://www.springframework.org/schema/beans/spring-beans.xsd-->
+<!--     http://www.springframework.org/schema/data/jpa-->
+<!--     https://www.springframework.org/schema/data/jpa/spring-jpa.xsd">-->
+
+<!--		<repositories base-package="com.acme.repositories"/>-->
+
+<!--	</beans>-->
 
 
-	<dependency>
-    <groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-starter-data-jpa</artifactId>
-</dependency>
-<dependency>
-    <groupId>com.h2database</groupId>
-    <artifactId>h2</artifactId>
-    <scope>runtime</scope>
-</dependency>
 
 
 	<build>
